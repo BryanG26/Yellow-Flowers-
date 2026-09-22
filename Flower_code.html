@@ -1,53 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Flor amarilla 🌼</title>
 
 <style>
 
 /* =====================================================
-   CONFIGURACIÓN
-===================================================== */
-
-:root {
-    --pixel: 10px;
-
-    --amarillo: #ffd21f;
-    --amarillo-claro: #ffe86a;
-    --amarillo-oscuro: #e9a900;
-
-    --cafe: #9a570b;
-    --cafe-claro: #bd7315;
-
-    --verde: #398b32;
-    --verde-claro: #57a947;
-
-    --fondo: #fffdf5;
-}
-
-
-/* =====================================================
-   PÁGINA
+   GENERAL
 ===================================================== */
 
 * {
     box-sizing: border-box;
 }
 
+html,
 body {
     margin: 0;
-    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+}
 
-    background: var(--fondo);
+body {
+
+    background: #fffdf5;
+
+    overflow: hidden;
 
     display: flex;
     justify-content: center;
     align-items: center;
-
-    overflow: hidden;
 
     font-family: monospace;
 
@@ -59,7 +45,8 @@ body {
    ESCENA
 ===================================================== */
 
-.escena {
+.scene {
+
     width: 100%;
     height: 100vh;
 
@@ -72,163 +59,17 @@ body {
 
 
 /* =====================================================
-   FLOR
+   SVG
 ===================================================== */
 
-.flor {
-    position: relative;
+svg {
 
-    width: 300px;
-    height: 500px;
-}
+    width: min(90vw, 430px);
+    height: auto;
 
-
-/* =====================================================
-   PIXEL BASE
-===================================================== */
-
-.pixel {
-    position: absolute;
-
-    width: var(--pixel);
-    height: var(--pixel);
-
-    opacity: 0;
+    overflow: visible;
 
     image-rendering: pixelated;
-}
-
-
-/* =====================================================
-   CENTRO DE LA FLOR
-===================================================== */
-
-.centro {
-    background: var(--cafe);
-
-    left: 145px;
-    top: 145px;
-
-    box-shadow:
-
-        /* fila 1 */
-        10px 0 var(--cafe),
-        20px 0 var(--cafe),
-
-        /* fila 2 */
-        -10px 10px var(--cafe),
-        0 10px var(--cafe-claro),
-        10px 10px var(--cafe),
-        20px 10px var(--cafe-claro),
-        30px 10px var(--cafe),
-
-        /* fila 3 */
-        -10px 20px var(--cafe),
-        0 20px var(--cafe),
-        10px 20px var(--cafe-claro),
-        20px 20px var(--cafe),
-        30px 20px var(--cafe),
-
-        /* fila 4 */
-        0 30px var(--cafe),
-        10px 30px var(--cafe),
-        20px 30px var(--cafe);
-
-    animation:
-        pixelCentro 0.05s steps(1) forwards;
-
-    animation-delay: 2.7s;
-}
-
-
-/* =====================================================
-   PÉTALOS
-===================================================== */
-
-.petalo {
-    background: var(--amarillo);
-
-    left: 145px;
-    top: 145px;
-
-    box-shadow:
-
-        /* ===== PÉTALO SUPERIOR ===== */
-
-        -10px -10px var(--amarillo),
-        0 -20px var(--amarillo),
-        10px -30px var(--amarillo),
-
-        20px -30px var(--amarillo-claro),
-        30px -20px var(--amarillo),
-        40px -10px var(--amarillo),
-
-        /* ===== PÉTALO SUPERIOR IZQUIERDO ===== */
-
-        -20px 0 var(--amarillo),
-        -30px -10px var(--amarillo),
-        -40px -20px var(--amarillo),
-
-        -40px -30px var(--amarillo),
-        -30px -40px var(--amarillo-claro),
-        -20px -50px var(--amarillo),
-
-        -10px -50px var(--amarillo),
-
-        /* ===== PÉTALO IZQUIERDO ===== */
-
-        -30px 10px var(--amarillo),
-        -40px 20px var(--amarillo),
-        -50px 30px var(--amarillo),
-
-        -50px 40px var(--amarillo-claro),
-        -40px 50px var(--amarillo),
-        -30px 50px var(--amarillo),
-
-        /* ===== PÉTALO INFERIOR IZQUIERDO ===== */
-
-        -20px 60px var(--amarillo),
-        -30px 70px var(--amarillo),
-        -30px 80px var(--amarillo),
-
-        -20px 90px var(--amarillo-claro),
-        -10px 90px var(--amarillo),
-        0 80px var(--amarillo),
-
-        /* ===== PÉTALO INFERIOR ===== */
-
-        10px 70px var(--amarillo),
-        20px 80px var(--amarillo),
-        30px 80px var(--amarillo),
-
-        40px 70px var(--amarillo-claro),
-        40px 60px var(--amarillo),
-
-        /* ===== PÉTALO DERECHO ===== */
-
-        50px 50px var(--amarillo),
-        60px 40px var(--amarillo),
-        60px 30px var(--amarillo),
-
-        50px 20px var(--amarillo-claro),
-        40px 10px var(--amarillo),
-
-        /* ===== PÉTALO SUPERIOR DERECHO ===== */
-
-        50px 0 var(--amarillo),
-        60px -10px var(--amarillo),
-        70px -20px var(--amarillo),
-
-        70px -30px var(--amarillo),
-        60px -40px var(--amarillo-claro),
-        50px -50px var(--amarillo),
-
-        40px -50px var(--amarillo);
-
-    animation:
-        dibujarPetalos 0.06s steps(1) forwards;
-
-    animation-delay: 0.1s;
 }
 
 
@@ -236,160 +77,180 @@ body {
    TALLO
 ===================================================== */
 
-.tallo {
-    background: var(--verde);
+.stem {
 
-    left: 150px;
-    top: 180px;
+    stroke: #3c9638;
 
-    box-shadow:
+    stroke-width: 9;
 
-        0 10px var(--verde),
-        0 20px var(--verde),
-        0 30px var(--verde),
-        0 40px var(--verde),
-        0 50px var(--verde),
-        0 60px var(--verde),
-        0 70px var(--verde),
-        0 80px var(--verde),
-        0 90px var(--verde),
-        0 100px var(--verde),
-        0 110px var(--verde),
-        0 120px var(--verde),
-        0 130px var(--verde),
-        0 140px var(--verde),
-        0 150px var(--verde),
-        0 160px var(--verde),
-        0 170px var(--verde),
-        0 180px var(--verde),
-        0 190px var(--verde),
-        0 200px var(--verde),
-        0 210px var(--verde),
-        0 220px var(--verde),
-        0 230px var(--verde);
+    stroke-linecap: square;
+
+    fill: none;
+
+    stroke-dasharray: 500;
+
+    stroke-dashoffset: 500;
 
     animation:
-        dibujarTallo 0.07s steps(1) forwards;
+        drawStem
+        1.5s
+        steps(20)
+        forwards;
 
-    animation-delay: 4s;
+    animation-delay: 2.8s;
+}
+
+@keyframes drawStem {
+
+    to {
+        stroke-dashoffset: 0;
+    }
 }
 
 
 /* =====================================================
-   HOJA IZQUIERDA
+   HOJAS
 ===================================================== */
 
-.hoja-izquierda {
+.leaf {
 
-    background: var(--verde);
+    opacity: 0;
 
-    left: 150px;
-    top: 330px;
-
-    box-shadow:
-
-        -10px 0 var(--verde),
-        -20px 10px var(--verde),
-        -30px 10px var(--verde),
-        -40px 20px var(--verde),
-
-        -50px 30px var(--verde),
-        -60px 40px var(--verde-claro),
-
-        -60px 50px var(--verde),
-        -50px 60px var(--verde),
-        -40px 70px var(--verde),
-
-        -30px 70px var(--verde-claro),
-        -20px 60px var(--verde),
-
-        -30px 50px var(--verde),
-        -40px 40px var(--verde);
+    transform-box: fill-box;
+    transform-origin: center;
 
     animation:
-        dibujarHoja 0.07s steps(1) forwards;
+        showLeaf
+        0.7s
+        steps(5)
+        forwards;
+}
 
-    animation-delay: 6s;
+.leftLeaf {
+    animation-delay: 4.1s;
+}
+
+.rightLeaf {
+    animation-delay: 4.5s;
+}
+
+@keyframes showLeaf {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.1);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
 }
 
 
 /* =====================================================
-   HOJA DERECHA
+   PÉTALOS
 ===================================================== */
 
-.hoja-derecha {
+.petal {
 
-    background: var(--verde);
+    opacity: 0;
 
-    left: 150px;
-    top: 380px;
+    transform-box: fill-box;
 
-    box-shadow:
-
-        10px 0 var(--verde),
-        20px -10px var(--verde),
-        30px -10px var(--verde),
-        40px -20px var(--verde),
-
-        50px -30px var(--verde),
-        60px -40px var(--verde-claro),
-
-        60px -50px var(--verde),
-        50px -60px var(--verde),
-        40px -70px var(--verde),
-
-        30px -70px var(--verde-claro),
-        20px -60px var(--verde),
-
-        30px -50px var(--verde),
-        40px -40px var(--verde);
+    transform-origin: center;
 
     animation:
-        dibujarHoja 0.07s steps(1) forwards;
+        showPetal
+        0.45s
+        steps(4)
+        forwards;
+}
 
-    animation-delay: 7s;
+
+/* Cada pétalo aparece después del anterior */
+
+.p1  { animation-delay: 0.20s; }
+.p2  { animation-delay: 0.35s; }
+.p3  { animation-delay: 0.50s; }
+.p4  { animation-delay: 0.65s; }
+.p5  { animation-delay: 0.80s; }
+.p6  { animation-delay: 0.95s; }
+.p7  { animation-delay: 1.10s; }
+.p8  { animation-delay: 1.25s; }
+.p9  { animation-delay: 1.40s; }
+.p10 { animation-delay: 1.55s; }
+.p11 { animation-delay: 1.70s; }
+.p12 { animation-delay: 1.85s; }
+
+@keyframes showPetal {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.15);
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.08);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
 }
 
 
 /* =====================================================
-   DESTELLOS
+   CENTRO
 ===================================================== */
 
-.brillo1 {
-    background: var(--amarillo);
+.flowerCenter {
 
-    left: 75px;
-    top: 120px;
-
-    box-shadow:
-
-        0 20px var(--amarillo),
-        20px 10px var(--amarillo),
-        -20px 10px var(--amarillo);
+    opacity: 0;
 
     animation:
-        aparecerBrillo 0.5s ease forwards;
+        showCenter
+        0.7s
+        steps(5)
+        forwards;
 
-    animation-delay: 8s;
+    animation-delay: 2.2s;
 }
 
+@keyframes showCenter {
 
-.brillo2 {
-    background: var(--amarillo);
+    from {
 
-    left: 215px;
-    top: 100px;
+        opacity: 0;
 
-    box-shadow:
+        transform:
+            scale(0.2);
+    }
 
-        0 20px var(--amarillo),
-        20px 10px var(--amarillo),
-        -20px 10px var(--amarillo);
+    to {
 
-    animation:
-        aparecerBrillo 0.5s ease forwards;
+        opacity: 1;
 
-    animation-delay: 8.3s;
+        transform:
+            scale(1);
+    }
 }
 
 
@@ -397,123 +258,62 @@ body {
    MENSAJE
 ===================================================== */
 
-.mensaje {
+.message {
 
     margin-top: -20px;
 
-    font-size: clamp(25px, 7vw, 42px);
+    font-size:
+        clamp(28px, 8vw, 46px);
 
-    color: #e0a400;
+    color: #dda500;
+
+    letter-spacing: 3px;
 
     opacity: 0;
 
     animation:
-        aparecerMensaje 1s ease forwards;
+        showMessage
+        1s
+        ease
+        forwards;
 
-    animation-delay: 8.5s;
-
-    text-align: center;
+    animation-delay: 5.5s;
 }
 
-
-.mensaje span {
-    color: #f2b900;
-}
-
-
-/* =====================================================
-   ANIMACIONES
-===================================================== */
-
-@keyframes pixelCentro {
-
-    to {
-        opacity: 1;
-    }
-}
-
-
-@keyframes dibujarPetalos {
-
-    0% {
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-
-@keyframes dibujarTallo {
+@keyframes showMessage {
 
     from {
+
         opacity: 0;
+
+        transform:
+            translateY(20px);
     }
 
     to {
+
         opacity: 1;
-    }
-}
 
-
-@keyframes dibujarHoja {
-
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-
-@keyframes aparecerBrillo {
-
-    from {
-        opacity: 0;
-        transform: scale(0);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-
-@keyframes aparecerMensaje {
-
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 }
 
 
 /* =====================================================
-   RESPONSIVE
+   PIXEL BORDER
 ===================================================== */
 
-@media (max-width: 400px) {
+.pixelBorder {
 
-    :root {
-        --pixel: 8px;
-    }
+    stroke:
+        #e2a900;
 
-    .flor {
-        transform: scale(0.9);
-    }
+    stroke-width:
+        4;
+
+    stroke-linejoin:
+        bevel;
 }
 
 </style>
@@ -522,33 +322,617 @@ body {
 
 <body>
 
-<div class="escena">
 
-    <div class="flor">
-
-        <!-- Pétalos -->
-        <div class="pixel petalo"></div>
-
-        <!-- Centro -->
-        <div class="pixel centro"></div>
-
-        <!-- Tallo -->
-        <div class="pixel tallo"></div>
-
-        <!-- Hojas -->
-        <div class="pixel hoja-izquierda"></div>
-        <div class="pixel hoja-derecha"></div>
-
-        <!-- Destellos -->
-        <div class="pixel brillo1"></div>
-        <div class="pixel brillo2"></div>
-
-    </div>
+<div class="scene">
 
 
-    <div class="mensaje">
-        🌼 <span>Para ti</span> 🌼
-    </div>
+<!-- ===================================================
+     FLOR
+=================================================== -->
+
+<svg
+    viewBox="0 0 400 600"
+    xmlns="http://www.w3.org/2000/svg"
+>
+
+
+<!-- ===================================================
+     TALLO
+=================================================== -->
+
+<path
+    class="stem"
+    d="
+        M200 315
+        L200 510
+    "
+/>
+
+
+<!-- ===================================================
+     HOJA IZQUIERDA
+=================================================== -->
+
+<g class="leaf leftLeaf">
+
+    <!-- borde -->
+    <path
+        d="
+        M198 425
+        L175 410
+        L145 415
+        L115 435
+        L105 460
+        L115 480
+        L145 488
+        L170 478
+        L190 455
+        Z
+        "
+        fill="#2f7f32"
+    />
+
+    <!-- interior -->
+    <path
+        d="
+        M190 430
+        L165 420
+        L140 425
+        L120 442
+        L118 458
+        L140 474
+        L160 468
+        L180 450
+        Z
+        "
+        fill="#55a849"
+    />
+
+    <!-- vena -->
+    <path
+        d="
+        M120 450
+        L180 442
+        "
+        stroke="#347d34"
+        stroke-width="5"
+        stroke-linecap="square"
+    />
+
+</g>
+
+
+<!-- ===================================================
+     HOJA DERECHA
+=================================================== -->
+
+<g class="leaf rightLeaf">
+
+    <!-- borde -->
+    <path
+        d="
+        M202 455
+        L225 435
+        L250 415
+        L280 410
+        L305 425
+        L315 450
+        L305 472
+        L280 480
+        L250 472
+        L225 458
+        Z
+        "
+        fill="#2f7f32"
+    />
+
+    <!-- interior -->
+    <path
+        d="
+        M210 450
+        L235 435
+        L255 422
+        L280 420
+        L300 435
+        L305 450
+        L285 466
+        L260 462
+        L235 450
+        Z
+        "
+        fill="#55a849"
+    />
+
+    <!-- vena -->
+    <path
+        d="
+        M300 448
+        L220 450
+        "
+        stroke="#347d34"
+        stroke-width="5"
+        stroke-linecap="square"
+    />
+
+</g>
+
+
+<!-- ===================================================
+     PÉTALO 1
+     ARRIBA
+=================================================== -->
+
+<g class="petal p1">
+
+    <path
+        class="pixelBorder"
+        fill="#ffd52e"
+        d="
+        M185 155
+        L185 125
+        L195 125
+        L195 105
+        L205 105
+        L205 95
+        L215 95
+        L215 105
+        L225 105
+        L225 125
+        L235 125
+        L235 155
+        Z
+        "
+    />
+
+    <path
+        fill="#ffe76a"
+        d="
+        M200 120
+        L205 105
+        L215 105
+        L220 125
+        L220 145
+        L200 145
+        Z
+        "
+    />
+
+</g>
+
+
+<!-- ===================================================
+     PÉTALO 2
+=================================================== -->
+
+<g
+    class="petal p2"
+    transform="rotate(30 200 190)"
+>
+
+    <path
+        class="pixelBorder"
+        fill="#ffd52e"
+        d="
+        M185 155
+        L185 125
+        L195 125
+        L195 105
+        L205 105
+        L205 95
+        L215 95
+        L215 105
+        L225 105
+        L225 125
+        L235 125
+        L235 155
+        Z
+        "
+    />
+
+</g>
+
+
+<!-- ===================================================
+     PÉTALO 3
+=================================================== -->
+
+<g
+    class="petal p3"
+    transform="rotate(60 200 190)"
+>
+
+    <path
+        class="pixelBorder"
+        fill="#ffd52e"
+        d="
+        M185 155
+        L185 125
+        L195 125
+        L195 105
+        L205 105
+        L205 95
+        L215 95
+        L215 105
+        L225 105
+        L225 125
+        L235 125
+        L235 155
+        Z
+        "
+    />
+
+</g>
+
+
+<!-- ===================================================
+     PÉTALO 4
+=================================================== -->
+
+<g
+    class="petal p4"
+    transform="rotate(90 200 190)"
+>
+
+    <path
+        class="pixelBorder"
+        fill="#ffd52e"
+        d="
+        M185 155
+        L185 125
+        L195 125
+        L195 105
+        L205 105
+        L205 95
+        L215 95
+        L215 105
+        L225 105
+        L225 125
+        L235 125
+        L235 155
+        Z
+        "
+    />
+
+</g>
+
+
+<!-- ===================================================
+     PÉTALO 5
+=================================================== -->
+
+<g
+    class="petal p5"
+    transform="rotate(120 200 190)"
+>
+
+    <path
+        class="pixelBorder"
+        fill="#ffd52e"
+        d="
+        M185 155
+        L185 125
+        L195 125
+        L195 105
+        L205 105
+        L205 95
+        L215 95
+        L215 105
+        L225 105
+        L225 125
+        L235 125
+        L235 155
+        Z
+        "
+    />
+
+</g>
+
+
+<!-- ===================================================
+     PÉTALO 6
+=================================================== -->
+
+<g
+    class="petal p6"
+    transform="rotate(150 200 190)"
+>
+
+    <path
+        class="pixelBorder"
+        fill="#ffd52e"
+        d="
+        M185 155
+        L185 125
+        L195 125
+        L195 105
+        L205 105
+        L205 95
+        L215 95
+        L215 105
+        L225 105
+        L225 125
+        L235 125
+        L235 155
+        Z
+        "
+    />
+
+</g>
+
+
+<!-- ===================================================
+     PÉTALO 7
+=================================================== -->
+
+<g
+    class="petal p7"
+    transform="rotate(180 200 190)"
+>
+
+    <path
+        class="pixelBorder"
+        fill="#ffd52e"
+        d="
+        M185 155
+        L185 125
+        L195 125
+        L195 105
+        L205 105
+        L205 95
+        L215 95
+        L215 105
+        L225 105
+        L225 125
+        L235 125
+        L235 155
+        Z
+        "
+    />
+
+</g>
+
+
+<!-- ===================================================
+     PÉTALO 8
+=================================================== -->
+
+<g
+    class="petal p8"
+    transform="rotate(210 200 190)"
+>
+
+    <path
+        class="pixelBorder"
+        fill="#ffd52e"
+        d="
+        M185 155
+        L185 125
+        L195 125
+        L195 105
+        L205 105
+        L205 95
+        L215 95
+        L215 105
+        L225 105
+        L225 125
+        L235 125
+        L235 155
+        Z
+        "
+    />
+
+</g>
+
+
+<!-- ===================================================
+     PÉTALO 9
+=================================================== -->
+
+<g
+    class="petal p9"
+    transform="rotate(240 200 190)"
+>
+
+    <path
+        class="pixelBorder"
+        fill="#ffd52e"
+        d="
+        M185 155
+        L185 125
+        L195 125
+        L195 105
+        L205 105
+        L205 95
+        L215 95
+        L215 105
+        L225 105
+        L225 125
+        L235 125
+        L235 155
+        Z
+        "
+    />
+
+</g>
+
+
+<!-- ===================================================
+     PÉTALO 10
+=================================================== -->
+
+<g
+    class="petal p10"
+    transform="rotate(270 200 190)"
+>
+
+    <path
+        class="pixelBorder"
+        fill="#ffd52e"
+        d="
+        M185 155
+        L185 125
+        L195 125
+        L195 105
+        L205 105
+        L205 95
+        L215 95
+        L215 105
+        L225 105
+        L225 125
+        L235 125
+        L235 155
+        Z
+        "
+    />
+
+</g>
+
+
+<!-- ===================================================
+     PÉTALO 11
+=================================================== -->
+
+<g
+    class="petal p11"
+    transform="rotate(300 200 190)"
+>
+
+    <path
+        class="pixelBorder"
+        fill="#ffd52e"
+        d="
+        M185 155
+        L185 125
+        L195 125
+        L195 105
+        L205 105
+        L205 95
+        L215 95
+        L215 105
+        L225 105
+        L225 125
+        L235 125
+        L235 155
+        Z
+        "
+    />
+
+</g>
+
+
+<!-- ===================================================
+     PÉTALO 12
+=================================================== -->
+
+<g
+    class="petal p12"
+    transform="rotate(330 200 190)"
+>
+
+    <path
+        class="pixelBorder"
+        fill="#ffd52e"
+        d="
+        M185 155
+        L185 125
+        L195 125
+        L195 105
+        L205 105
+        L205 95
+        L215 95
+        L215 105
+        L225 105
+        L225 125
+        L235 125
+        L235 155
+        Z
+        "
+    />
+
+</g>
+
+
+<!-- ===================================================
+     CENTRO DE LA FLOR
+=================================================== -->
+
+<g
+    class="flowerCenter"
+    transform="translate(200 190)"
+>
+
+    <!-- borde -->
+    <rect
+        x="-35"
+        y="-35"
+        width="70"
+        height="70"
+        fill="#8e4f0b"
+    />
+
+    <!-- textura -->
+    <rect
+        x="-25"
+        y="-25"
+        width="12"
+        height="12"
+        fill="#c07518"
+    />
+
+    <rect
+        x="0"
+        y="-25"
+        width="12"
+        height="12"
+        fill="#a9600e"
+    />
+
+    <rect
+        x="13"
+        y="-12"
+        width="12"
+        height="12"
+        fill="#c07518"
+    />
+
+    <rect
+        x="-13"
+        y="0"
+        width="12"
+        height="12"
+        fill="#c07518"
+    />
+
+    <rect
+        x="12"
+        y="13"
+        width="12"
+        height="12"
+        fill="#a9600e"
+    />
+
+    <rect
+        x="-25"
+        y="13"
+        width="12"
+        height="12"
+        fill="#a9600e"
+    />
+
+</g>
+
+
+</svg>
+
+
+<!-- ===================================================
+     MENSAJE
+=================================================== -->
+
+<div class="message">
+    🌼 Para ti 🌼
+</div>
+
 
 </div>
 
@@ -556,21 +940,18 @@ body {
 <script>
 
 /*
-    Al tocar la pantalla se reinicia
-    toda la animación.
+    Tocar la pantalla reinicia
+    la animación.
 */
 
-document.body.addEventListener("click", () => {
+document.body.addEventListener(
+    "click",
+    () => {
 
-    document.body.classList.remove("reiniciar");
+        location.reload();
 
-    void document.body.offsetWidth;
-
-    document.body.classList.add("reiniciar");
-
-    location.reload();
-
-});
+    }
+);
 
 </script>
 
